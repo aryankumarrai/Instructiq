@@ -45,3 +45,12 @@ To set up your local development environment:
    ```bash
    git clone https://github.com/RaazYadav/instructiq.git
    cd instructiq
+
+Contributing
+We welcome contributions to enhance instructIQ.live. Feel free to fork the repository and open a pull request with your improvements. For major changes, please open an issue first to discuss what you would like to change.
+
+License
+This project is licensed under the MIT License.
+
+Contact
+For any inquiries or feedback, please open an issue or contact the repository maintainer via GitHub Issues.
