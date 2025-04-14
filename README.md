@@ -4,6 +4,9 @@
 
 *"Teach Smart. Automate the Rest."*
 
+We Make this Project under (Summer Of CodeFest'25)
+Organised by- GSoC Innovators Club
+#gsco #gsocinnovatorsclub #gsocinnovators #summerofcodeFest25
 instructIQ.live is an AI-powered academic assistant platform designed to make faculty workflows seamless and efficient. From automated student follow-up calls to AI-based assignment integrity checks and more, instructIQ.live empowers educators to focus on what they do best: teaching.
 
 ## Features
