@@ -1,6 +1,6 @@
 # instructIQ.live
 
-[![InstructIQ Banner](https://via.placeholder.com/1200x300?text=instructIQ.live)](https://www.instructiq.live/assets/images/logo/INSTRUCTIQ%20(3).png)
+[![instructIQ.live Banner](https://www.instructiq.live/assets/images/logo/INSTRUCTIQ%20(3).png)](https://instructiq.live)
 
 *"Teach Smart. Automate the Rest."*
 
@@ -44,4 +44,4 @@ To set up your local development environment:
 
    ```bash
    git clone https://github.com/RaazYadav/instructiq.git
-   cd instructiq
+   cd instructiq
