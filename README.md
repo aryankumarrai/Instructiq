@@ -20,7 +20,7 @@ instructIQ.live is an AI-powered academic assistant platform designed to make fa
  Connects with Google Classroom (API USING)
  Checks for submission accuracy and duplicate files
  Highlights non-submitters and file integrity
- Here Are the Screenshots
+ Here Are the Screenshots [SEE NOW](https://drive.google.com/drive/folders/10Rs3loCqsiTrMNLDUuSiFsiSFcVMn9jj?usp=sharing)
 - *The Calling Companion*  
   No more chasing down students manually.  
   Our AI-powered phone agent handles student follow-up calls automatically—scheduling, dialing, and delivering reminders like a virtual assistant.
