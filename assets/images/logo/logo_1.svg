@@ -1,0 +1,22 @@
+<svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="61" height="60" fill="#E5E5E5"/>
+<g id="01_Home" clip-path="url(#clip0_4424_16994)">
+<rect width="1920" height="6990" transform="translate(-315 -1967)" fill="white"/>
+<g id="Clients">
+<g id="Frame" clip-path="url(#clip1_4424_16994)">
+<g id="Group">
+<path id="Vector" d="M14.8705 42.6923H29.741L28.8573 40.5592H15.7237L22.2753 24.7746L20.9954 21.7578L6.76486 56.1915L0 58.7207V60.0006H15.6323V58.7207L9.29406 56.1915L14.8705 42.6923Z" fill="#BCBCBC"/>
+<path id="Vector_2" d="M56.6195 57.4708L32.5464 0H30.0172L23.6484 15.3581L24.8978 18.3748L24.9283 18.3443L34.2223 40.5587H34.1614L35.0451 42.6613H35.0756L39.3722 52.8085C40.2863 54.9416 41.6576 56.6785 43.5164 58.0193C45.3752 59.3296 47.7825 60 50.7079 60H60.8551V58.7202L56.6195 57.4708Z" fill="#BCBCBC"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_4424_16994">
+<rect width="1920" height="6990" fill="white" transform="translate(-315 -1967)"/>
+</clipPath>
+<clipPath id="clip1_4424_16994">
+<rect width="60.8532" height="60" fill="white"/>
+</clipPath>
+</defs>
+</svg>
