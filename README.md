@@ -12,7 +12,7 @@ Organised by- GSoC Innovators Club
  
  
 instructIQ.live is an AI-powered academic assistant platform designed to make faculty workflows seamless and efficient. From automated student follow-up calls to AI-based assignment integrity checks and more, instructIQ.live empowers educators to focus on what they do best: teaching.
-## DEMO video -[live website](https://instructiq.live)
+## DEMO video -[SEE NOW](https://instructiq.live)
 ## Features
 
 -Assignment Analysis Engine: (AUTOMATED ASSIGNMENT CHECKER)
