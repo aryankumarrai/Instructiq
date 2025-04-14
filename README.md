@@ -1,6 +1,6 @@
 # instructIQ.live
 
-[![InstructIQ Banner](https://via.placeholder.com/1200x300?text=instructIQ.live)](https://instructiq.live)
+[![InstructIQ Banner]([https://via.placeholder.com/1200x300?text=instructIQ.live)](https://instructiq.live](https://www.instructiq.live/assets/images/logo/INSTRUCTIQ%20(3).png))
 
 *"Teach Smart. Automate the Rest."*
 
