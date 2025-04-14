@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+    <title>Courses</title>
+    <!-- Import Roboto font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Import Font Awesome for headset icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/assets/Untitled design (3).svg" rel="shortcut icon">
+    <style>
+        /* Reset default styles and set base font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Default (Dark Theme) */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light Theme */
+        [data-theme="light"] body {
+            background-color: #ffffff;
+            color: #2d3748;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            margin-bottom: 10px;
+            background-color: inherit;
+        }
+
+        [data-theme="light"] header {
+            background-color: #ffffff;
+        }
+
+        /* Logo placeholder */
+        .logo-placeholder {
+            width: 180px;
+            aspect-ratio: 9 / 4;
+            max-width: 100%;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-dark {
+            opacity: 1;
+        }
+
+        .logo-light {
+            opacity: 0;
+        }
+
+        [data-theme="light"] .logo-dark {
+            opacity: 0;
+        }
+
+        [data-theme="light"] .logo-light {
+            opacity: 1;
+        }
+
+        /* Buttons container */
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Help/Contact Us button (desktop) */
+        .contact-btn {
+            padding: 10px 20px;
+            background-color: #51DFCF;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #51DFCF;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="light"] .contact-btn {
+            background-color: #51DFCF;
+        }
+
+        [data-theme="light"] .contact-btn:hover {
+            background-color: #51DFCF;
+        }
+
+        /* Headset button (mobile) */
+        .headset-btn {
+            padding: 10px;
+            background-color: #51DFCF;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .headset-btn:hover {
+            background-color: #51DFCF;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="light"] .headset-btn {
+            background-color: #51DFCF;
+        }
+
+        [data-theme="light"] .headset-btn:hover {
+            background-color: #51DFCF;
+        }
+
+        /* Theme toggle button */
+        .theme-btn {
+            padding: 10px;
+            background-color: #4a5568;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .theme-btn:hover {
+            background-color: #2d3748;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="light"] .theme-btn {
+            background-color: #cbd5e0;
+            color: #2d3748;
+        }
+
+        [data-theme="light"] .theme-btn:hover {
+            background-color: #a0aec0;
+        }
+
+        /* Separator line */
+        .separator {
+            width: 100%;
+            height: 2px;
+            background-color: #51DFCF;
+            margin-bottom: 20px;
+        }
+
+        [data-theme="light"] .separator {
+            background-color: #f56565;
+        }
+
+        /* Contact form modal (desktop only) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 26, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        [data-theme="light"] .modal {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .modal-content {
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="light"] .modal-content {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        [data-theme="light"] .modal-content h2 {
+            color: #2d3748;
+        }
+
+        .modal-content label {
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        [data-theme="light"] .modal-content label {
+            color: #2d3748;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #51DFCF;
+            border-radius: 4px;
+            color: #e2e8f0;
+            font-size: 1rem;
+        }
+
+        [data-theme="light"] .modal-content input,
+        [data-theme="light"] .modal-content textarea {
+            background-color: #edf2f7;
+            border-color: #51DFCF;
+            color: #2d3748;
+        }
+
+        .modal-content textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #51DFCF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #51DFCF;
+        }
+
+        [data-theme="light"] .modal-content button[type="submit"] {
+            background-color: #51DFCF;
+        }
+
+        [data-theme="light"] .modal-content button[type="submit"]:hover {
+            background-color: #51DFCF;
+        }
+
+        .close-btn {
+            background-color: #4a5568;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-left: 10px;
+        }
+
+        .close-btn:hover {
+            background-color: #2d3748;
+        }
+
+        [data-theme="light"] .close-btn {
+            background-color: #cbd5e0;
+            color: #2d3748;
+        }
+
+        [data-theme="light"] .close-btn:hover {
+            background-color: #a0aec0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: left;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        [data-theme="light"] h1 {
+            color: #2d3748;
+        }
+
+        ul {
+            list-style: none;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        li a {
+            display: block;
+            padding: 15px 20px;
+            background-color: #2d3748;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        li a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(229, 62, 62, 0.4);
+            background-color: #51DFCF;
+            color: #ffffff;
+        }
+
+        [data-theme="light"] li a {
+            background-color: #edf2f7;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] li a:hover {
+            background-color: #51DFCF;
+            box-shadow: 0 4px 8px rgba(245, 101, 101, 0.4);
+            color: #ffffff;
+        }
+
+        /* Loading spinner container */
+        .loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+[data-theme="light"] .loader-container {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.stars {
+    display: flex;
+    gap: 15px;
+}
+
+.star {
+    font-size: 2.5rem;
+    color: #fcd34d;
+    animation: waveJump 1s ease-in-out infinite;
+}
+
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: 0.1s; }
+.star:nth-child(3) { animation-delay: 0.2s; }
+.star:nth-child(4) { animation-delay: 0.3s; }
+.star:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes waveJump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                max-width: 800px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                margin-bottom: 10px;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: flex;
+            }
+
+            .logo-placeholder {
+                width: 135px;
+            }
+
+            .header-buttons {
+                display: flex;
+                gap: 8px;
+            }
+
+            .headset-btn {
+                padding: 8px;
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .theme-btn {
+                padding: 8px;
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .separator {
+                margin-bottom: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            li a {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo-placeholder {
+                width: 108px;
+            }
+
+            .headset-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .theme-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading spinner -->
+    <div class="loader-container" id="loader">
+        <div class="stars">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+        </div>
+    </div>
+    
+
+    <!-- Header with logo and buttons -->
+    <header>
+        <div class="logo-placeholder">
+            <img src="/static/images/darkmode.svg" alt="Dark Theme Logo" class="logo-img logo-dark">
+            <img src="/static/images/lightmode.svg" alt="Light Theme Logo" class="logo-img logo-light">
+        </div>
+        <div class="header-buttons">
+            <button class="contact-btn desktop-only" onclick="openModal()">Help/Contact Us</button>
+            <button class="headset-btn mobile-only" onclick="composeMail()"><i class="fas fa-headset"></i></button>
+            <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        </div>
+    </header>
+
+    <!-- Separator line -->
+    <div class="separator"></div>
+
+    <!-- Your Courses title -->
+    <h1>Your Courses</h1>
+
+    <ul>
+        {% for course in courses %}
+            <li><a href="{{ url_for('assignments', course_id=course.id) }}">{{ course.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Contact form modal (desktop only) -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <h2>Contact Support</h2>
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button type="submit">Submit</button>
+                    <button type="button" class="close-btn" onclick="closeModal()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simulate loading content
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                loader.classList.add('loader-hidden');
+                setTimeout(function() {
+            loader.classList.add('loader-hidden');
+            }, 500);
+            }, 1500);
+        });
+
+        // Modal functions (desktop only)
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.getElementById('contactForm').reset();
+        }
+
+        // Form submission (desktop placeholder)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted! (Placeholder - integrate with backend)');
+            closeModal();
+        });
+
+        // Compose mail (mobile only)
+        function composeMail() {
+            window.location.href = 'mailto:support@intructiq.live?subject=Support%20Request&body=Please%20describe%20your%20issue%20here.';
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            document.querySelector('.theme-btn').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+        // Show loader on any button or link click
+document.addEventListener('DOMContentLoaded', function () {
+    const loader = document.getElementById('loader');
+
+    // Apply to all <a> tags
+    document.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Optional: Prevent if it opens in new tab
+            if (anchor.target !== '_blank') {
+                loader.classList.remove('loader-hidden');
+            }
+        });
+    });
+
+    // Apply to all <button> tags (if they submit or redirect)
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', function () {
+            loader.classList.remove('loader-hidden');
+        });
+    });
+});
+
+    </script>
+
+    <!-- Original Cloudflare script retained -->
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92fc6917a94cd6c4',t:'MTc0NDU2MjQ4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92fcfa1a0eaf7221',t:'MTc0NDU2ODQyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
