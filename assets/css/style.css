@@ -4347,10 +4347,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     right: 0px;
     bottom: 0px;
     z-index: 1;
-    -webkit-transform: translatex(50%) scalex(2);
-    transform: translatex(50%) scalex(2);
+    -webkit-transform: none;
+    transform: none;
     opacity: 0;
-    -webkit-filter: blur(10px);
+    
     filter: blur(10px);
 }
 
@@ -5694,11 +5694,11 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     right: 0px;
     bottom: 0px;
     z-index: 1;
-    -webkit-transform: translatex(50%) scalex(2);
-    transform: translatex(50%) scalex(2);
+    -webkit-transform:none;
+    transform: none;
     opacity: 0;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
+    -webkit-filter: none;
+    filter: none;
 }
 
 .nb-iefmain {
