@@ -93,7 +93,7 @@ a:hover {
 }
 .sky-tabs > label span span {
     padding: 14px 31px;
-    border: 3px solid var(--dark-color);
+    border: 3px solid var(#fff);
     background: transparent;
     transition: background 0.4s, color 0.4s;
     -o-transition: background 0.4s, color 0.4s;
@@ -105,6 +105,7 @@ a:hover {
     background-image: linear-gradient(90deg, transparent 50%, var(--main-color) 50%);
     background-size: 200%;
 }
+
 
 .sky-tabs > label.disabled span span {
     background: transparent;
