@@ -56,8 +56,8 @@ To set up your local development environment:
 1. *Clone the repository:*
 
    ```bash
-   git clone https://github.com/RaazYadav/instructiq.git
-   cd instructiq
+   git clone https://github.com/aryankumarrai/Instructiq.git
+   cd Instructiq
 
 Contributing
 We welcome contributions to enhance instructIQ.live. Feel free to fork the repository and open a pull request with your improvements. For major changes, please open an issue first to discuss what you would like to change.
